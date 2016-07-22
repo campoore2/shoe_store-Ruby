@@ -1,0 +1,12 @@
+<h1>Edit Store: <%= @store.name() %></h1>
+
+
+<form action="/edit/<%= @store.id() %>/store" method="post">
+  <input type="hidden" name="_method" value="delete">
+
+  <button type="btn btn-danger" name="Submit">Delete Store</button>
+</form>
+
+
+<a class="btn btn-default" href="/">Home</a>
+<a class="btn btn-default" href="/">Back</a>
