@@ -50,6 +50,7 @@ end
 
 post('/select_store/:id/add_shoes') do
   @shoe = Shoe.create(:name => params.fetch("name"))
+  @shoe = Shoe.find(shoe_id().to_i())
   @shoes = Shoe.all()
   redirect("/select_store")
 end
