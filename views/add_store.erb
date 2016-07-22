@@ -1,7 +1,7 @@
 <h2>Current Stores</h2>
 <% if @stores.any?() %>
   <% @stores.each() do |store| %>
-    <h3><a href="/edit/<%= store.id %>/store"><%= store.name() %></a></h3>
+    <h3><a href="/edit/<%= store.id %>"><%= store.name() %></a></h3>
   <% end %>
   <% else %>
     <h3>No Stores</h3>
@@ -11,7 +11,7 @@
 
 <form action="/add/store" method="post">
   <label for="name">Store Name</label>
-  <input type="text" name="name">
+  <input type="text" name="name" required>
   <button type="submit" name="button">Add</button>
 </form>
 

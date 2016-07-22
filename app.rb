@@ -21,8 +21,35 @@ post ('/add/store') do
   erb(:add_store)
 end
 
-get ('/edit/:id/store') do
+get ('/edit/:id') do
   @store = Store.find(params.fetch("id").to_i())
-  @store = Store.find(params.fetch("name"))
   erb(:edit_store)
+end
+
+patch '/edit/:id' do
+  store = Store.find(params.fetch("id").to_i())
+  store.update({:name => params.fetch("rename")})
+  redirect('/add/store')
+end
+
+delete('/edit/:id') do
+  store = Store.find(params.fetch("id").to_i())
+  store.delete()
+  redirect("/add/store")
+end
+
+get ('/select_store') do
+  @stores = Store.all()
+  erb(:select_store)
+end
+
+get('/select_store/:id/add_shoes') do
+  @shoes = Shoe.all()
+  erb(:add_shoes)
+end
+
+post('/select_store/:id/add_shoes') do
+  @shoe = Shoe.create(:name => params.fetch("name"))
+  @shoes = Shoe.all()
+  redirect("/select_store")
 end

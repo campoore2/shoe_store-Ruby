@@ -1,0 +1,21 @@
+<h1>Current Shoes</h1>
+
+<% if @shoes.any?() %>
+<% @shoes.each() do |shoe| %>
+<h3><%= shoe.name() %></h3>
+<% end %>
+<% else %>
+<h3>No Shoes</h3>
+<% end %>
+
+<h1>Add Shoes</h1>
+
+
+<form action="/select_store/:id/add_shoes" method="post">
+  <label for="name">Shoe Name</label>
+  <input type="text" name="name" required>
+  <button type="submit" name="button">Add</button>
+</form>
+
+<a class="btn btn-default" href="/">Home</a>
+<a class="btn btn-default" href="/select_store">Back</a>

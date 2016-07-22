@@ -1,12 +1,21 @@
 <h1>Edit Store: <%= @store.name() %></h1>
+<form action="/edit/<%= @store.id() %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <label for="rename">Update Name</label>
+  <input type="text" name="rename">
 
+  <button class="btn btn-primary" type="submit">Edit Name</button>
+</form>
 
-<form action="/edit/<%= @store.id() %>/store" method="post">
+<form action="/edit/<%= @store.id() %>" method="post">
   <input type="hidden" name="_method" value="delete">
 
-  <button type="btn btn-danger" name="Submit">Delete Store</button>
+  <button type="submit" class="btn btn-danger">Delete Store</button>
 </form>
 
 
+
+<br>
+<br>
 <a class="btn btn-default" href="/">Home</a>
-<a class="btn btn-default" href="/">Back</a>
+<a class="btn btn-default" href="/add/store">Back</a>
