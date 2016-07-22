@@ -1,3 +1,13 @@
 <h1>Shoe Store</h1>
 <a class="btn btn-primary" href="/add/store">Edit Stores</a>
 <a class="btn btn-primary" href="/select_store">Add Shoes to a Store</a>
+
+
+<h1>Stores we Support</h1>
+<% if @stores.any?() %>
+  <% @stores.each() do |store| %>
+    <h3><%= store.name() %></h3>
+  <% end %>
+  <% else %>
+    <h3>No Stores</h3>
+  <% end %>

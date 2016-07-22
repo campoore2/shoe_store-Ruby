@@ -7,6 +7,7 @@ require('./lib/shoe')
 require('pg')
 
 get('/') do
+  @stores = Store.all()
   erb(:index)
 end
 
